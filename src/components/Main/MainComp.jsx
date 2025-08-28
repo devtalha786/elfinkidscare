@@ -4,6 +4,7 @@ import HeroSection from './HeroSection';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import AOS from 'aos';
+import ShopProducts from './ShopProducts';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -15,6 +16,7 @@ const MainComp = () => {
 	return (
 		<div className='font-syne'>
 			<HeroSection />
+			<ShopProducts />
 		</div>
 	);
 };
