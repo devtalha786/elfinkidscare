@@ -23,7 +23,7 @@ const dmSans = DM_Sans({
 export default async function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={cn('bg-[#FFFCF1]', dmSans.className)}>
+			<body className={cn('bg-[#fbeeec]', dmSans.className)}>
 				<Providers>
 					<Toaster position='top-center' reverseOrder={false} />
 					<NextTopLoader
