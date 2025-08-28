@@ -72,7 +72,7 @@ export default function HeroSection() {
 			</div>
 
 			{/* Scroll Down Indicator */}
-			<div className='text-center mt-8 text-sm text-gray-200 pb-3'>
+			<div className='text-center mt-8 text-sm text-gray-500 pb-3'>
 				<span>Scroll to see more</span>
 			</div>
 		</section>
