@@ -58,7 +58,7 @@ module.exports = {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				theme: {
-					primary: '#ff4b85',
+					primary: '#6ba4b1',
 					secondary: '#333333',
 					gray: '#F5F5F5',
 					linkColor: '#1877F2',

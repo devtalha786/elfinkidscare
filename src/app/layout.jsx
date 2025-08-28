@@ -8,7 +8,8 @@ import Providers from '@/store/Providers';
 
 export const metadata = {
 	title: ' Elfin Kids Care',
-	description: 'Discover Elfin Kids Care – premium, gentle, natural haircare for kids.',
+	description:
+		'Discover Elfin Kids Care – premium, gentle, natural haircare for kids.',
 };
 
 // Import Space Grotesk font
@@ -36,7 +37,7 @@ export default async function RootLayout({ children }) {
 					/>
 					{/* <Header /> */}
 					{children}
-					{/* <Footer /> */}
+					<Footer />
 				</Providers>
 			</body>
 		</html>
