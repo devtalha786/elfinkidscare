@@ -147,7 +147,7 @@ export default function ShopProducts() {
 						alt='Wave Shape'
 						width={1920}
 						height={500}
-						className='w-full h-[25vw]'
+						className='w-full h-[60vw] md:h-[25vw]'
 						priority
 					/>
 				</div>
