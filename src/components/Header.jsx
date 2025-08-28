@@ -73,10 +73,7 @@ export default function Header() {
 								</ul>
 							)}
 						</div>
-						<Link
-							href='/pages/about-us'
-							className='hover:text-gray-700'
-						>
+						<Link href='#' className='hover:text-gray-700'>
 							About us
 						</Link>
 					</nav>
