@@ -1,174 +1,123 @@
-// 'use client';
-// import { useState, useEffect } from 'react';
-// import { Menu, X, Search, User, ShoppingBag } from 'lucide-react';
-// import MobileDrawer from './MobileDrawer';
-// import Image from 'next/image';
-// import { useSelector } from 'react-redux';
-// import CartDrawer from './Main/CartDrawer';
+'use client';
 
-// export default function Header() {
-// 	const [isScrolled, setIsScrolled] = useState(false);
-// 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-// 	const [isCartOpen, setIsCartOpen] = useState(false);
-// 	const { cartItems } = useSelector(state => state.cart);
-// 	const cartCount = cartItems.reduce(
-// 		(total, item) => total + item.quantity,
-// 		0
-// 	);
+import { useState } from 'react';
+import { Menu, X, ShoppingBag, User } from 'lucide-react';
+import Link from 'next/link';
 
-// 	useEffect(() => {
-// 		const handleScroll = () => setIsScrolled(window.scrollY > 50);
-// 		window.addEventListener('scroll', handleScroll);
-// 		return () => window.removeEventListener('scroll', handleScroll);
-// 	}, []);
+export default function Header() {
+	const [menuOpen, setMenuOpen] = useState(false);
 
-// 	const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+	return (
+		<header className='sticky top-[60px] z-50 bg-[#eed7fc] px-2 md:px-4 lg:px-6'>
+			<div className='max-w-[120rem] mx-auto flex items-center justify-between py-2'>
+				<div className='flex items-center gap-10'>
+					{/* Logo */}
+					<Link href='/'>
+						<img
+							src='/images/logoHeaderDesktop.png'
+							alt='Elfin Kids Care'
+							className='w-[94px] h-[70px]'
+						/>
+					</Link>
 
-// 	const mainNav = [
-// 		{ name: 'Sale', href: '#', highlight: true },
-// 		{ name: 'Bestsellers', href: '#' },
-// 		{ name: 'Kids & Teens', href: '#' },
-// 		{ name: 'Mom', href: '#' },
-// 		{ name: 'Baby', href: '#' },
-// 		{ name: 'Save with Sets', href: '#' },
-// 		{ name: 'Offers', href: '#' },
-// 	];
+					{/* Desktop Nav */}
+					<nav className='hidden lg:flex items-center gap-8'>
+						<details className='group relative'>
+							<summary className='cursor-pointer text-[16px] font-medium'>
+								Products
+							</summary>
+							<ul className='absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-48 hidden group-open:block'>
+								<li>
+									<Link
+										href='#'
+										className='block px-4 py-2 hover:bg-gray-100'
+									>
+										All Products
+									</Link>
+								</li>
+								<li>
+									<Link
+										href='#'
+										className='block px-4 py-2 hover:bg-gray-100'
+									>
+										Shampoos
+									</Link>
+								</li>
+								<li>
+									<Link
+										href='#'
+										className='block px-4 py-2 hover:bg-gray-100'
+									>
+										Conditioners
+									</Link>
+								</li>
+								<li>
+									<Link
+										href='#'
+										className='block px-4 py-2 hover:bg-gray-100'
+									>
+										Styling
+									</Link>
+								</li>
+							</ul>
+						</details>
 
-// 	return (
-// 		<>
-// 			<header
-// 				className={`fixed top-[25px] md:top-7 left-0 w-full z-50 bg-white transition-all duration-300 ${
-// 					isScrolled ? 'py-4' : 'py-4'
-// 				}`}
-// 			>
-// 				<div className='max-w-[1400px] mx-auto flex items-center justify-between px-4 lg:px-10 transition-all duration-300'>
-// 					{/* LEFT LINKS (hide when scrolled) */}
-// 					<nav
-// 						className={`hidden lg:flex items-center space-x-8 text-[12px] uppercase font-semibold tracking-[1.5px] transition-all duration-300 ${
-// 							isScrolled
-// 								? 'opacity-0 w-0 overflow-hidden !hidden'
-// 								: 'opacity-100'
-// 						}`}
-// 					>
-// 						<a href='#' className='hover:text-[#ef8e74]'>
-// 							Skincare Quiz
-// 						</a>
-// 						<a href='#' className='hover:text-[#ef8e74]'>
-// 							Build Your Routine
-// 						</a>
-// 					</nav>
+						<Link href='#' className='text-[16px] font-medium'>
+							About Us
+						</Link>
+					</nav>
+				</div>
 
-// 					{/* LOGO + MAIN NAV (moves left + merges with nav on scroll) */}
-// 					<div
-// 						className={`flex items-center transition-all duration-300 ${
-// 							isScrolled ? 'space-x-6' : ''
-// 						}`}
-// 					>
-// 						{/* Logo */}
-// 						<div
-// 							className={`text-2xl font-bold tracking-[1px] font-serif transition-all duration-300 ${
-// 								isScrolled
-// 									? 'lg:ml-0'
-// 									: 'lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2'
-// 							}`}
-// 						>
-// 							<a href='/'>
-// 								<Image
-// 									src='/images/logo.svg'
-// 									alt='Evereden Logo'
-// 									width={140}
-// 									height={40}
-// 									className='h-auto w-auto'
-// 								/>
-// 							</a>
-// 						</div>
+				{/* Right Icons */}
+				<div className='flex items-center gap-4'>
+					<Link href='#' className='text-black'>
+						<User size={22} />
+					</Link>
+					<Link href='#' className='text-black'>
+						<ShoppingBag size={22} />
+					</Link>
+					{/* Mobile Menu Button */}
+					<button
+						className='lg:hidden text-black'
+						onClick={() => setMenuOpen(!menuOpen)}
+						aria-label='Toggle menu'
+					>
+						{menuOpen ? <X size={28} /> : <Menu size={28} />}
+					</button>
+				</div>
+			</div>
 
-// 						{/* Main Nav - moves inline when scrolled */}
-// 						<div
-// 							className={`hidden lg:flex items-center space-x-6 text-[12px] uppercase tracking-[1.5px] font-semibold transition-all duration-300 ${
-// 								isScrolled
-// 									? 'opacity-100 translate-y-0'
-// 									: 'opacity-0 translate-y-4 pointer-events-none'
-// 							}`}
-// 						>
-// 							{mainNav.map((link, i) => (
-// 								<a
-// 									key={i}
-// 									href={link.href}
-// 									className={`${
-// 										link.highlight ? 'text-red-500' : ''
-// 									} hover:text-[#ef8e74]`}
-// 								>
-// 									{link.name}
-// 								</a>
-// 							))}
-// 						</div>
-// 					</div>
-
-// 					{/* RIGHT ICONS */}
-// 					<div className='flex items-center space-x-2'>
-// 						<a
-// 							href='#'
-// 							className='hidden lg:block text-[12px] uppercase tracking-[1.5px] hover:text-[#ef8e74]'
-// 						>
-// 							Evereden Rewards
-// 						</a>
-// 						<Search className='w-5 h-5 cursor-pointer hover:text-[#ef8e74]' />
-// 						<User className='w-5 h-5 cursor-pointer hover:text-[#ef8e74]' />
-// 						<button
-// 							type='button'
-// 							onClick={() => setIsCartOpen(true)}
-// 							className='relative cursor-pointer'
-// 							aria-label='Open cart'
-// 						>
-// 							<ShoppingBag className='w-5 h-5 hover:text-[#ef8e74]' />
-// 							{cartCount > 0 && (
-// 								<span className='absolute -top-3 -right-2 bg-red-500 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md'>
-// 									{cartCount}
-// 								</span>
-// 							)}
-// 						</button>
-
-// 						{/* Hamburger */}
-// 						<button onClick={toggleDrawer} className='lg:hidden'>
-// 							{isDrawerOpen ? (
-// 								<X className='w-6 h-6' />
-// 							) : (
-// 								<Menu className='w-6 h-6' />
-// 							)}
-// 						</button>
-// 					</div>
-// 				</div>
-
-// 				{/* MAIN NAV (only in second row when NOT scrolled) */}
-// 				<div
-// 					className={`hidden lg:flex justify-center space-x-8 text-[12px] uppercase tracking-[1.5px] font-semibold transition-all duration-300 ${
-// 						isScrolled
-// 							? 'opacity-0 pointer-events-none h-0'
-// 							: 'opacity-100 mt-5'
-// 					}`}
-// 				>
-// 					{mainNav.map((link, i) => (
-// 						<a
-// 							key={i}
-// 							href={link.href}
-// 							className={`${
-// 								link.highlight ? 'text-red-500' : ''
-// 							} hover:text-[#ef8e74]`}
-// 						>
-// 							{link.name}
-// 						</a>
-// 					))}
-// 				</div>
-// 			</header>
-
-// 			{/* attach drawer at root level */}
-// 			<CartDrawer
-// 				open={isCartOpen}
-// 				onClose={() => setIsCartOpen(false)}
-// 			/>
-// 			{/* Mobile Drawer */}
-// 			<MobileDrawer open={isDrawerOpen} toggleDrawer={toggleDrawer} />
-// 		</>
-// 	);
-// }
+			{/* Mobile Drawer */}
+			{menuOpen && (
+				<div className='lg:hidden bg-white shadow-lg absolute top-full left-0 w-full px-6 py-4 z-40'>
+					<ul className='flex flex-col gap-4'>
+						<li>
+							<details>
+								<summary className='cursor-pointer text-[16px] font-medium'>
+									Products
+								</summary>
+								<ul className='pl-4 mt-2 flex flex-col gap-2'>
+									<li>
+										<Link href='#'>All Products</Link>
+									</li>
+									<li>
+										<Link href='#'>Shampoos</Link>
+									</li>
+									<li>
+										<Link href='#'>Conditioners</Link>
+									</li>
+									<li>
+										<Link href='#'>Styling</Link>
+									</li>
+								</ul>
+							</details>
+						</li>
+						<li>
+							<Link href='#'>About Us</Link>
+						</li>
+					</ul>
+				</div>
+			)}
+		</header>
+	);
+}

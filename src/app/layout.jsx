@@ -6,6 +6,7 @@ import './globals.css';
 import Footer from '@/components/Footer';
 import Providers from '@/store/Providers';
 import AnnouncementBar from '@/components/Main/AnnouncementBar';
+import Header from '@/components/Header';
 
 export const metadata = {
 	title: ' Elfin Kids Care',
@@ -37,7 +38,7 @@ export default async function RootLayout({ children }) {
 						shadow='0 0 10px #2299DD,0 0 5px #2299DD'
 					/>
 					<AnnouncementBar />
-					{/* <Header /> */}
+					<Header />
 					{children}
 					<Footer />
 				</Providers>

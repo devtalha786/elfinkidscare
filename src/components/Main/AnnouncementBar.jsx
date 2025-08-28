@@ -19,13 +19,13 @@ export default function AnnouncementBar() {
 	useEffect(() => {
 		const timer = setInterval(() => {
 			setIndex(prev => (prev + 1) % announcements.length);
-		}, 9000);
+		}, 5000);
 		return () => clearInterval(timer);
 	}, []);
 
 	return (
-		<div className='w-full bg-[#1d1c1e] text-white text-[16px] leading-[24px] font-syne relative z-[4]'>
-			<div className='max-w-[120rem] mx-auto flex items-center justify-between px-4 py-4'>
+		<div className='w-full bg-[#1d1c1e] text-white text-[16px] leading-[24px] font-syne relative z-[4] sticky top-0 px-2 md:px-4 lg:px-6'>
+			<div className='max-w-[120rem] mx-auto flex items-center justify-between py-1 h-[60px]'>
 				{/* Left - Social Icons */}
 				<ul className='hidden lg:flex gap-4'>
 					{/* Facebook */}
