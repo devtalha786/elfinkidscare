@@ -1,7 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Facebook, Instagram, Music2 } from 'lucide-react';
+import {
+	ChevronLeft,
+	ChevronRight,
+	Facebook,
+	Instagram,
+	Music2,
+} from 'lucide-react';
 
 const announcements = [
 	'🚚 Free Shipping on Orders $25+',
@@ -20,9 +25,9 @@ export default function AnnouncementBar() {
 
 	return (
 		<div className='w-full bg-[#1d1c1e] text-white text-[16px] leading-[24px] font-syne relative z-[4]'>
-			<div className='max-w-[120rem] mx-auto flex items-center justify-between px-4 py-[7px]'>
+			<div className='max-w-[120rem] mx-auto flex items-center justify-between px-4 py-4'>
 				{/* Left - Social Icons */}
-				<ul className='flex gap-4'>
+				<ul className='hidden lg:flex gap-4'>
 					{/* Facebook */}
 					<li>
 						<a
@@ -56,7 +61,7 @@ export default function AnnouncementBar() {
 				</ul>
 
 				{/* Center - Announcement Text */}
-				<div className='flex items-center gap-2'>
+				<div className='flex items-center gap-2 lg:gap-2 w-full lg:w-auto justify-between lg:justify-center'>
 					<button
 						onClick={() =>
 							setIndex(prev =>
@@ -67,7 +72,7 @@ export default function AnnouncementBar() {
 					>
 						<ChevronLeft size={16} />
 					</button>
-					<p className='text-[16px] leading-[24px] tracking-[0.06rem] font-normal'>
+					<p className='flex-1 text-center text-[16px] leading-[24px] tracking-[0.06rem] font-normal'>
 						{announcements[index]}
 					</p>
 					<button
@@ -81,7 +86,7 @@ export default function AnnouncementBar() {
 				</div>
 
 				{/* Right - Empty (like original Shopify) */}
-				<div className='w-[40px]'></div>
+				<div className='hidden lg:block w-[40px]'></div>
 			</div>
 		</div>
 	);
