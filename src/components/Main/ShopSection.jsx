@@ -13,7 +13,7 @@ export default function ShopSection({
 	reverse = false, // if true → text left, image right
 }) {
 	return (
-		<section className='w-full'>
+		<section className='w-full font-syne'>
 			<div
 				className={`flex flex-col md:flex-row ${
 					reverse ? 'md:flex-row-reverse' : ''

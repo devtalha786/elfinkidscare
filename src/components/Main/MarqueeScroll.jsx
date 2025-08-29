@@ -63,7 +63,7 @@ const items = [
 
 export default function MarqueeScroll() {
 	return (
-		<div className='w-full overflow-hidden bg-[#f9dde5] py-4 relative'>
+		<div className='w-full overflow-hidden bg-[#f9dde5] py-4 relative font-syne'>
 			<div className='flex animate-marquee whitespace-nowrap'>
 				{items.map((item, i) => (
 					<div

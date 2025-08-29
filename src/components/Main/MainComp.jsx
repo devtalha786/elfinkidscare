@@ -12,6 +12,7 @@ import ShopSection from './ShopSection';
 import FoundedSection from './FoundedSection';
 import ElfinFourSection from './ElfinFourSection';
 import PurchaseSubscribeSection from './PurchaseSubscribeSection';
+import ParentsInstaReelSection from './ParentsInstaReelSection';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -56,6 +57,7 @@ const MainComp = () => {
 			<FoundedSection />
 			<ElfinFourSection />
 			<PurchaseSubscribeSection />
+			<ParentsInstaReelSection />
 		</div>
 	);
 };

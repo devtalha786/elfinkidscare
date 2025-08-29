@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@/store/cart/cartThunk';
 
 const products = [
 	{
@@ -73,9 +75,13 @@ const products = [
 ];
 
 export default function ShopProducts() {
+	const dispatch = useDispatch();
+	const handleAddToCart = product => {
+		dispatch(addToCart(product));
+	};
 	return (
 		<section>
-			<div className='px-2 md:px-4 lg:px-6 relative pt-[40px] pb-[50px]'>
+			<div className='px-2 md:px-4 lg:px-6 relative pt-[40px] pb-[50px] font-syne'>
 				{/* Heading */}
 				<h2 className='text-center text-xl md:text-2xl font-semibold text-gray-900 mb-10'>
 					Shop Our Products
@@ -96,10 +102,10 @@ export default function ShopProducts() {
 				>
 					{products.map(product => (
 						<SwiperSlide key={product.id}>
-							<div className='bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center p-5'>
+							<div className='bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center p-5 group'>
 								<Link
 									href={product.href || '#'}
-									className='group w-full'
+									className='w-full'
 								>
 									{/* Image */}
 									<div className='relative w-full h-[360px]'>
@@ -117,6 +123,16 @@ export default function ShopProducts() {
 										/>
 									</div>
 								</Link>
+								{/* Product Details */}
+								<div className='flex flex-col items-center w-full relative'>
+									{/* Buy Now Button (hidden until hover) */}
+									<button
+										onClick={() => handleAddToCart(product)}
+										className='opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out border border-black px-4 py-2 text-xs md:text-sm font-medium uppercase tracking-[1px] bg-white hover:bg-theme-primary hover:text-white hover:border-theme-primary rounded-sm mt-3'
+									>
+										Buy Now
+									</button>
+								</div>
 							</div>
 							{/* Product Details */}
 							<div className='flex justify-between items-center w-full mt-2'>

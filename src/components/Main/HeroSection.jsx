@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function HeroSection() {
 	return (
-		<section className='overflow-hidden relative'>
+		<section className='overflow-hidden relative font-syne'>
 			<div className='max-w-[120rem] mx-auto flex flex-wrap bg-[#6ba4b1]'>
 				{/* Left Column */}
 				<div className='w-full lg:w-[39.2%] px-[8vw] pt-[3vw] flex items-center justify-center lg:justify-start text-center lg:text-left'>

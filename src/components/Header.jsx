@@ -9,7 +9,7 @@ export default function Header() {
 	const [productsOpen, setProductsOpen] = useState(false);
 
 	return (
-		<header className='sticky top-[60px] z-50 bg-[#eed7fc] px-2 md:px-4 lg:px-6'>
+		<header className='sticky top-[60px] z-50 bg-[#eed7fc] px-2 md:px-4 lg:px-6 font-syne'>
 			<div className='flex items-center justify-between py-2 max-w-[120rem] mx-auto'>
 				<div className='flex items-center gap-16'>
 					{/* Logo */}

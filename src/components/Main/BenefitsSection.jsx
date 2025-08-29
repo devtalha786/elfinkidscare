@@ -56,7 +56,7 @@ export default function Benefits() {
 	return (
 		<section
 			id='benefits'
-			className='benefits-three-section relative overflow-hidden'
+			className='benefits-three-section relative overflow-hidden font-syne'
 		>
 			<div className='flex flex-col md:flex-row h-[100vh] relative'>
 				{/* LEFT SIDE */}
