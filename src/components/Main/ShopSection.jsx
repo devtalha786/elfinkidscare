@@ -34,7 +34,7 @@ export default function ShopSection({
 
 				{/* TEXT SIDE */}
 				<div
-					className='w-full md:w-1/2 flex items-center justify-center px-6 py-12'
+					className='w-full md:w-1/2 flex items-center justify-center px-6 py-12 overflow-hidden'
 					style={{ backgroundColor: bgColor }}
 				>
 					<div
