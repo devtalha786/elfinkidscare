@@ -10,6 +10,7 @@ import WhyParentsLove from './WhyParentsLove';
 import MarqueeScroll from './MarqueeScroll';
 import ShopSection from './ShopSection';
 import FoundedSection from './FoundedSection';
+import ElfinFourSection from './ElfinFourSection';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -52,6 +53,7 @@ const MainComp = () => {
 				bgColor='#6597cb'
 			/>
 			<FoundedSection />
+			<ElfinFourSection />
 		</div>
 	);
 };

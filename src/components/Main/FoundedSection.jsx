@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function FoundedSection() {
 	return (
-		<section className='relative w-full overflow-hidden font-syne pb-[60px] bg-[#6ba4b1]'>
+		<section className='relative w-full overflow-hidden font-syne'>
 			{/* Background Image */}
 			<Image
 				src='/images/elfin-slider.webp'
