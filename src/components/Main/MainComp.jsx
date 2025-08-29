@@ -11,6 +11,7 @@ import MarqueeScroll from './MarqueeScroll';
 import ShopSection from './ShopSection';
 import FoundedSection from './FoundedSection';
 import ElfinFourSection from './ElfinFourSection';
+import PurchaseSubscribeSection from './PurchaseSubscribeSection';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -54,6 +55,7 @@ const MainComp = () => {
 			/>
 			<FoundedSection />
 			<ElfinFourSection />
+			<PurchaseSubscribeSection />
 		</div>
 	);
 };

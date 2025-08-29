@@ -21,7 +21,11 @@ export default function FoundedSection() {
 				data-aos='fade-up'
 				data-aos-duration='1000'
 			>
-				<div className='relative max-w-5xl text-center text-white'>
+				<div
+					className='relative max-w-5xl text-center text-white'
+					data-aos='fade-up'
+					data-aos-duration='1000'
+				>
 					<p className='text-base text-white md:text-[1.528vw] leading-[20px] md:leading-[2.222vw] text-center'>
 						Founded with a passion for making every child's haircut
 						a joyful adventure,{' '}
