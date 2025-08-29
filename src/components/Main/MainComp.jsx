@@ -9,6 +9,7 @@ import BenefitsSection from './BenefitsSection';
 import WhyParentsLove from './WhyParentsLove';
 import MarqueeScroll from './MarqueeScroll';
 import ShopSection from './ShopSection';
+import FoundedSection from './FoundedSection';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -50,6 +51,7 @@ const MainComp = () => {
 				link='#'
 				bgColor='#6597cb'
 			/>
+			<FoundedSection />
 		</div>
 	);
 };
