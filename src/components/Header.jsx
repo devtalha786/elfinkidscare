@@ -3,10 +3,18 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import CartDrawer from './CartDrawer';
 
 export default function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [productsOpen, setProductsOpen] = useState(false);
+	const [isCartOpen, setIsCartOpen] = useState(false);
+	const { cartItems } = useSelector(state => state.cart);
+	const cartCount = cartItems.reduce(
+		(total, item) => total + item.quantity,
+		0
+	);
 
 	return (
 		<header className='sticky top-[60px] z-50 bg-[#eed7fc] px-2 md:px-4 lg:px-6 font-syne'>
@@ -83,9 +91,22 @@ export default function Header() {
 					<Link href='/account/login'>
 						<User size={28} />
 					</Link>
-					<Link href='/cart'>
+
+					<button
+						type='button'
+						onClick={() => setIsCartOpen(true)}
+						className='relative cursor-pointer'
+						aria-label='Open cart'
+					>
 						<ShoppingCart size={28} />
-					</Link>
+
+						{cartCount > 0 && (
+							<span className='absolute -top-3 -right-2 bg-red-500 text-white text-[11px] font-medium leading-tight w-5 h-5 flex items-center justify-center rounded-full'>
+								{cartCount > 99 ? '99+' : cartCount}
+							</span>
+						)}
+					</button>
+
 					{/* Mobile menu toggle */}
 					<button
 						className='lg:hidden'
@@ -95,6 +116,12 @@ export default function Header() {
 					</button>
 				</div>
 			</div>
+
+			{/* attach drawer at root level */}
+			<CartDrawer
+				open={isCartOpen}
+				onClose={() => setIsCartOpen(false)}
+			/>
 
 			{/* Mobile Drawer */}
 			<div
