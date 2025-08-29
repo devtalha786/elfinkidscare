@@ -7,6 +7,7 @@ import AOS from 'aos';
 import ShopProducts from './ShopProducts';
 import BenefitsSection from './BenefitsSection';
 import WhyParentsLove from './WhyParentsLove';
+import MarqueeScroll from './MarqueeScroll';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -21,6 +22,7 @@ const MainComp = () => {
 			<ShopProducts />
 			<BenefitsSection />
 			<WhyParentsLove />
+			<MarqueeScroll />
 		</div>
 	);
 };
