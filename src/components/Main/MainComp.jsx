@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import ShopProducts from './ShopProducts';
 import BenefitsSection from './BenefitsSection';
+import WhyParentsLove from './WhyParentsLove';
 
 const MainComp = () => {
 	useEffect(() => {
@@ -19,6 +20,7 @@ const MainComp = () => {
 			<HeroSection />
 			<ShopProducts />
 			<BenefitsSection />
+			<WhyParentsLove />
 		</div>
 	);
 };
